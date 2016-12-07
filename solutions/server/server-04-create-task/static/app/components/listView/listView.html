@@ -1,0 +1,11 @@
+  <div class="collection" style="border-style: none;">
+    <div ng-repeat="list in TaskService.lists">
+      <list-element list="list"></list-element>
+    </div>
+    <div>
+      <list-element hide ng-show="TaskService.todayList.tasks.length>0" list="TaskService.todayList"></list-element>
+    </div>
+    <div>
+      <list-element hide ng-show="TaskService.weekList.tasks.length>0" list="TaskService.weekList"></list-element>
+    </div>
+  </div>
