@@ -35,13 +35,13 @@ app.controller('taskCtrl', function($scope, $window, $timeout, $filter, ApiServi
 
   }
 
-  // $scope.deleteTask = function() {
-  //   $scope.task.isDeleting = true;
-  //   TaskService.removeTask($scope.task, $scope.task.list)
-  //     .catch(function () {
-  //       shake(document.getElementById($scope.task.id));
-  //     });
-  // }
+  $scope.deleteTask = function() {
+    $scope.task.isDeleting = true;
+    TaskService.removeTask($scope.task, $scope.task.list)
+      .catch(function () {
+        shake(document.getElementById($scope.task.id));
+      });
+  }
 
   // $scope.deleteTaskModally = function() {
   //   $('#modal' + $scope.task.id).modal('close');
