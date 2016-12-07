@@ -1,0 +1,12 @@
+<div hide ng-show="show" class="row config-bar">
+  <div class="col s6 left-align">
+    <span>Host: {{getHost()}}</span> |
+    <span ng-submit="changePort($event)">Port:
+      <input id="port" class="subtle" type="text" value="{{getPort()}}" ng-blur="changePort($event)"/>
+    </span>
+  </div>
+  <div class="col s6 right-align">
+    <span>api: v{{getApiVersion()}}</span> |
+    <span>app: v{{appVersion}}</span>
+  </div>
+</div>
