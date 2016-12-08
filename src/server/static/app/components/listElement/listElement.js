@@ -117,7 +117,7 @@ app.controller('listElementCtrl', function($scope, $http, $location, $window, $t
     });
     return n;
   }
-
+  //
   // $scope.showDetails = function() {
   //   doubleClick = true;
   //   if ($scope.list.inbox || TaskService.lists.indexOf($scope.list) == -1)
@@ -131,7 +131,6 @@ app.controller('listElementCtrl', function($scope, $http, $location, $window, $t
   //       $scope.list.isEditing = false;
   //     }
   //   });
-  //
   //   $('#listModal' + $scope.list.id).modal('open')
   //
   //   // init chips
