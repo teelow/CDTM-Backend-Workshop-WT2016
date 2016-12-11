@@ -8,7 +8,7 @@ app.directive('devBar', function() {
 
 app.controller('devBarCtrl', function($scope, $route, ApiService) {
 
-  $scope.appVersion = 6.0;
+  $scope.appVersion = 7.0;
   $scope.show = DEBUG;
 
   $scope.changePort = function(e) {
