@@ -1,0 +1,8 @@
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users(
+  id          INTEGER      PRIMARY KEY AUTOINCREMENT,
+  name        TEXT         NOT NULL UNIQUE,
+  created     TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
