@@ -1,0 +1,7 @@
+<div ng-repeat="t in tasks | orderBy : ['-status', 'due']">
+  <one-task task="t"></one-task>
+</div>
+<div class="input-footer">
+  <a href ng-click="toggleHideCompletedTasks()">{{hideCompletedTasks ? 'Show' : 'Hide'}} Completed Tasks</a>
+</div>
+</div>
