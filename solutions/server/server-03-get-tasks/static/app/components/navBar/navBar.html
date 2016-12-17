@@ -1,0 +1,43 @@
+<nav class="{{topnav ? '' : 'hide-on-large-only'}}">
+  <div class="nav-wrapper grey lighten-5 black-text">
+    <a href="/" class="brand-logo">
+      <img class="" src="/assets/CDTM_color.png" alt="CDTM"/><span> Tasks</span>
+    </a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse">
+      <svg viewBox="0 0 25 25" style="width:30px; margin: 0 20px; vertical-align: middle; fill: #153d77;">
+            <use xlink:href="assets/icons/hamburger.svg#icon-1"></use>
+      </svg>
+    </a>
+    <ul class="right hide-on-med-and-down">
+        <li hide ng-show="AuthService.isLoggedIn()" class="text-primary" style="font-size: 18px; text-transform: capitalize; margin-right:20px;">
+          <img src="assets/icons/user.svg" width="45" style="vertical-align:middle;"/> {{AuthService.getUser().email.split('.')[0]}}
+        </li>
+        <li><a href="/" class="primary waves-effect waves-light btn">My Tasks</a></li>
+        <li><a href="/logout" class="text-primary white waves-effect waves-light btn">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="side-nav {{sidenav ? 'fixed' : ''}}" id="mobile-demo">
+  <div class="" style="height: 100vh; width: 100%; overflow-x: hidden; overflow-y: scroll;">
+    <div class="" style="width: 100%; min-height:90%; margin: 0; overflow: auto; ">
+      <div style="margin-bottom: 20px;">
+        <a href="/home" target="_blank"><img width="140" src="/assets/CDTM_color.png" alt="CDTM" style="vertical-align:middle;" /><span class="text-primary" style="font-size:25px;"> Tasks</span></a>
+      </div>
+      <!-- if not logged in -->
+      <!-- if logged in -->
+      <list-view></list-view>
+    </div>
+
+    <div class="" style="width: 100%; min-height:10%; margin: 0; overflow: auto; ">
+      <a hide ng-show="AuthService.isLoggedIn()" href="/logout" class="text-primary white waves-effect waves-light btn">Logout</a>
+    </div>
+  </div>
+</ul>
+
+<div class="{{sidenav ? 'content' : ''}}">
+  <div hide ng-show="TaskService.loading" class="progress" style="margin-top:0;">
+    <div class="indeterminate"></div>
+  </div>
+  <dev-bar></dev-bar>
+</div>

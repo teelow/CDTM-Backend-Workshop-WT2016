@@ -1,0 +1,23 @@
+<div hide ng-show="list" class="container row">
+
+  <h1 class="center-align">
+    <svg viewBox="0 0 25 25">
+      <use xlink:href="{{urlForListIcon()}}"></use>
+    </svg>
+    {{list.title}}
+  </h1>
+  <div class="col s0 m2"></div>
+  <div class="col s12 m8">
+
+
+    <!-- <new-task list="list"></new-task> -->
+    <task-list tasks="list.tasks"></task-list>
+  </div>
+
+  <div class="col s0 m2"></div>
+
+</div>
+
+<div hide ng-show="!list" class="container row">
+  <h2>Something doesn't look alright... Please reload the page</h2>
+</div>
