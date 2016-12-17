@@ -1,11 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hello Centerlings</title>
+    <meta charset="UTF-8">
+    <title>CDTM Todo App</title>
+    <base href="/">
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Import custom stylesheet-->
     <link type="text/css" rel="stylesheet" href="css/main.css"  media="screen,projection"/>
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-  <body>
-    <h1>Hello Centerlings</h1>
-    <p>You have successfully completed the first step to creating your very own backend application. :-)</p>
-  </body>
+<body ng-app="taskApp">
+<div class="loading">
+  <div>
+      <img src="assets/icons/loading.svg" alt="" />
+      <h6 class="light">Loading ...</h6>
+  </div>
+</div>
+<div  ng-controller="rootCtrl" ng-cloak>
+
+  <ng-view></ng-view>
+
+</div>
+</body>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+  <script type="text/javascript" src="js/materialize.js"></script>
+
+  <!--Import Angular-->
+  <script type="text/javascript" src="js/angular.js"></script>
+  <script type="text/javascript" src="js/angular-route.js"></script>
+  <script type="text/javascript" src="js/angular-resource.js"></script>
+  <script type="text/javascript" src="js/angular-aria.js"></script>
+
+  <!--Import Angular app-->
+  <script type="text/javascript" src="app/app.js"></script>
+  <script type="text/javascript" src="app/utils.js"></script>
+
+  <script type="text/javascript" src="app/services/apiService.js" ></script>
+  <script type="text/javascript" src="app/services/taskService.js" ></script>
+
+  <script type="text/javascript" src="app/controllers/mainCtrl.js" ></script>
+
+  <script type="text/javascript" src="app/components/navBar/navBar.js" ></script>
+  <script type="text/javascript" src="app/components/devBar/devBar.js" ></script>
+  <script type="text/javascript" src="app/components/newTask/newTask.js" ></script>
+  <script type="text/javascript" src="app/components/dropZone/dropZone.js" ></script>
+  <script type="text/javascript" src="app/components/taskList/taskList.js" ></script>
+  <script type="text/javascript" src="app/components/oneTask/oneTask.js" ></script>
+  <script type="text/javascript" src="app/components/taskView/taskView.js" ></script>
+  <script type="text/javascript" src="app/components/listElement/listElement.js" ></script>
+  <script type="text/javascript" src="app/components/listView/listView.js" ></script>
+
+
 </html>
