@@ -1,8 +1,7 @@
 import os
 
-from server import *
-from server.database import *
 import config
+from server import *
 
 def init_app():
     if config.DB_SEED:

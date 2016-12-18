@@ -1,8 +1,7 @@
 import os
 
-from server import *
-from server.database import *
 import config
+from server import *
 
 def init_app():
     if config.DB_SEED:
@@ -15,3 +14,4 @@ def init_app():
 if __name__ == '__main__':
     init_app()
     app.run(host=config.HOST, port=config.PORT, debug=True)
+

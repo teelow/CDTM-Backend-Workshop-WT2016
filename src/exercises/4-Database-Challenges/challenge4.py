@@ -27,11 +27,11 @@ def dict_from_row(row):
 # TODO: Update all cookies which are of type old with type new
 def db_replace_cookie_type(old, new):
     # Save your SQL query as a string into the variable query
-    query = ''
+    query = 'UPDATE Cookies SET type = ? WHERE type = ?'
 
     db = get_db()
     cur = db.cursor()
-    cur.execute(query, [old, new])
+    cur.execute(query, [new, old])
     db.commit()
 
 if __name__ == '__main__':

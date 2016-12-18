@@ -27,7 +27,7 @@ def dict_from_row(row):
 # TODO: Remove all cookies which are of type 'Chocolate Cookie' or 'Almond Cookie'
 def db_remove_cookies():
     # Save your SQL query as a string into the variable query
-    query = ''
+    query = 'DELETE FROM Cookies WHERE type = ? OR type = ?;'
 
     db = get_db()
     cur = db.cursor()
