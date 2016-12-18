@@ -1,0 +1,63 @@
+<div id="{{task.id}}" ng-hide="$parent.hideCompletedTasks && task.status=='completed' " ng-class="{completed: task.status=='completed'}"  class="card hoverable row valign-wrapper task-card clickable" ng-dblclick="showDetails()">
+  <a class="col checkbox nonselectable" href ng-click="toggleTask()">
+    <img src="/assets/icons/check.svg">
+  </a>
+  <div class="card-title col" ng-class="{due: task.overdue && task.status!='completed'}">
+    {{task.title}}
+  </div>
+  <div class="col duedate" ng-class="{due: task.overdue && task.status!='completed'}">
+    {{task.due | date:'MMMM dd, yyyy'}}
+  </div>
+  <a class="col edit nonselectable" href ng-click="showDetails()">
+  </a>
+  <a class="col delete nonselectable" href ng-click="deleteTask()"></a>
+</div>
+
+<form id="modal{{task.id}}"  ng-submit="updateTask()" class="modal modal-fixed-footer">
+  <drop-zone id="multifile-drop" task="task" upload-files="uploadFiles(files)" class="modal-content">
+    <div id="drop-indicator" class="overlay">
+      <p>Place files here</p>
+      </div>
+    </div>
+    <div id="{{task.id}}" ng-class="{completed: task.status=='completed'}"  class="row task-card">
+      <div class="task-header valign-wrapper col s12 row">
+        <a class="col checkbox nonselectable" href ng-click="toggleTask()">
+          <img src="/assets/icons/check.svg">
+        </a>
+        <input class="subtle card-title col nonselectable" type="text" autocomplete="off" ng-model="task.title">
+        <a class="col delete nonselectable" href ng-click="deleteTaskModally()"></a>
+      </div>
+      <hr>
+
+      <div class="row task-body">
+        <div class="input-field col s12">
+          <h5>Due Date</h5>
+          <input id="dueDate{{task.id}}" type="text" placeholder="Remind me :-)" value="{{task.due | date:'MMMM dd, yyyy'}}" >
+        </div>
+        <div class="input-field col s12">
+          <h5>Description</h5>
+          <textarea id="description{{task.id}}" class="materialize-textarea description" placeholder="Your description ..." ng-model="task.description"></textarea>
+        </div>
+        <div class="input-field col s12">
+          <h5>Attachments</h5>
+          <div class="hint">To add files simply drag and drop them here.</div>
+        </div>
+        <div class="row attachment-field" ng-repeat="file in task.files">
+          <div class="col s12">
+            <span class="clickable" ng-click="downloadFile(file)">
+              <img src="/assets/icons/attachment.svg" style="vertical-align:middle;">
+              <span> {{file}} </span>
+            </span>
+            {{file.loading}}
+            <img hide ng-show="file.loading"class="clickable" src="/assets/icons/uploading.svg" style="vertical-align:middle;">
+            <img ng-hide="file.loading"class="clickable" src="/assets/icons/close.svg" style="vertical-align:middle;" ng-click="removeFile(file)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </drop-zone>
+  <div class="modal-footer">
+    <a class="modal-action modal-close waves-effect waves-blue btn-flat" ng-click="updateTask()">Save</a>
+    <a class="modal-action modal-close waves-effect waves-blue btn-flat">Cancel</a>
+  </div >
+</form>
